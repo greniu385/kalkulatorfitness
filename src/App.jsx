@@ -1,119 +1,95 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
+      <h1>Kalkulator fitness</h1>
+
+      <form>
+        <fieldset>
+          <legend>Dane</legend>
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            <label>
+              Wiek (lata){' '}
+              <input type="number" name="wiek" min="1" max="120" />
+            </label>
           </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+          <p>
+            <label>
+              Płeć{' '}
+              <select name="plec">
+                <option value="k">kobieta</option>
+                <option value="m">mężczyzna</option>
+              </select>
+            </label>
+          </p>
+          <p>
+            <label>
+              Wzrost (cm){' '}
+              <input type="number" name="wzrost" min="50" max="250" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Waga (kg){' '}
+              <input type="number" name="waga" min="20" max="300" step="0.1" />
+            </label>
+          </p>
+        </fieldset>
 
-      <div className="ticks"></div>
+        <fieldset>
+          <legend>Aktywność</legend>
+          <p>
+            <label>
+              Poziom{' '}
+              <select name="aktywnosc">
+                <option value="1">mało ruchu</option>
+                <option value="2">lekka aktywność</option>
+                <option value="3">umiarkowana aktywność</option>
+                <option value="4">duża aktywność</option>
+                <option value="5">bardzo duża aktywność</option>
+              </select>
+            </label>
+          </p>
+        </fieldset>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <fieldset>
+          <legend>Cel</legend>
+          <p>
+            <label>
+              <input type="radio" name="cel" value="redukcja" /> redukcja
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="radio" name="cel" value="utrzymanie" /> utrzymanie
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="radio" name="cel" value="masa" /> nabór masy
+            </label>
+          </p>
+        </fieldset>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        <fieldset>
+          <legend>Makro (opcjonalnie)</legend>
+          <p>
+            <label>
+              Białko (g na kg masy ciała){' '}
+              <input type="number" name="bialko_na_kg" min="0.5" max="3" step="0.1" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Tłuszcz (% kalorii){' '}
+              <input type="number" name="tluszcz_procent" min="10" max="60" />
+            </label>
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="button">Oblicz</button>
+        </p>
+      </form>
     </>
   )
 }
