@@ -10,6 +10,7 @@ function App() {
   const [wagaDocelowa, setWagaDocelowa] = useState('')
   const [tygodnie, setTygodnie] = useState('')
   const [wyniki, setWyniki] = useState(null)
+  const [blad, setBlad] = useState('')
 
   const mnoznikiAktywnosci = { '1': 1.2, '2': 1.375, '3': 1.55, '4': 1.725, '5': 1.9 }
 
@@ -53,6 +54,14 @@ function App() {
   }
 
   function oblicz() {
+    if (!wiek || !wzrost || !waga) { setBlad('Uzupełnij wiek, wzrost i wagę.'); return }
+    if (cel !== 'utrzymanie' && (!wagaDocelowa || !tygodnie)) { setBlad('Podaj docelową wagę i liczbę tygodni.'); return }
+    if (cel !== 'utrzymanie') {
+      const roznica = parseFloat(wagaDocelowa) - parseFloat(waga)
+      if (cel === 'schudnac' && roznica >= 0) { setBlad('Docelowa waga musi być mniejsza niż obecna.'); return }
+      if (cel === 'przytyc' && roznica <= 0) { setBlad('Docelowa waga musi być większa niż obecna.'); return }
+    }
+    setBlad('')
     const w = parseFloat(waga)
     const h = parseFloat(wzrost)
     const a = parseInt(wiek)
@@ -170,6 +179,7 @@ function App() {
           )}
         </fieldset>
 
+        {blad && <p style={{ color: 'red' }}>{blad}</p>}
         <p>
           <button type="button" onClick={oblicz}>Oblicz</button>
         </p>
