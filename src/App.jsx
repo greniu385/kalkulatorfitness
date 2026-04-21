@@ -7,6 +7,8 @@ function App() {
   const [waga, setWaga] = useState('')
   const [aktywnosc, setAktywnosc] = useState('2')
   const [cel, setCel] = useState('utrzymanie')
+  const [wagaDocelowa, setWagaDocelowa] = useState('')
+  const [tygodnie, setTygodnie] = useState('')
 
   const mnoznikiAktywnosci = { '1': 1.2, '2': 1.375, '3': 1.55, '4': 1.725, '5': 1.9 }
 
@@ -88,6 +90,23 @@ function App() {
           <p><label><input type="radio" value="schudnac" checked={cel === 'schudnac'} onChange={() => setCel('schudnac')} /> chcę schudnąć</label></p>
           <p><label><input type="radio" value="utrzymanie" checked={cel === 'utrzymanie'} onChange={() => setCel('utrzymanie')} /> chcę utrzymać wagę</label></p>
           <p><label><input type="radio" value="przytyc" checked={cel === 'przytyc'} onChange={() => setCel('przytyc')} /> chcę przytyć</label></p>
+
+          {cel !== 'utrzymanie' && (
+            <>
+              <p>
+                <label>
+                  Docelowa waga (kg){' '}
+                  <input type="number" min="20" max="300" step="0.1" value={wagaDocelowa} onChange={e => setWagaDocelowa(e.target.value)} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  W ciągu ilu tygodni?{' '}
+                  <input type="number" min="1" max="104" value={tygodnie} onChange={e => setTygodnie(e.target.value)} />
+                </label>
+              </p>
+            </>
+          )}
         </fieldset>
 
         <p>
