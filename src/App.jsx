@@ -188,10 +188,8 @@ function App() {
           )}
         </fieldset>
 
-        {blad && <p style={{ color: 'red' }}>{blad}</p>}
-        <p>
-          <button type="button" onClick={oblicz}>Oblicz</button>
-        </p>
+        {blad && <p className="blad">{blad}</p>}
+        <button type="button" className="btn-oblicz" onClick={oblicz}>Oblicz</button>
       </form>
       {wyniki && (
         <section className="wyniki">
