@@ -8,6 +8,12 @@ function App() {
   const [aktywnosc, setAktywnosc] = useState('2')
   const [cel, setCel] = useState('utrzymanie')
 
+  const mnoznikiAktywnosci = { '1': 1.2, '2': 1.375, '3': 1.55, '4': 1.725, '5': 1.9 }
+
+  function obliczTDEE(bmr, aktywnosc) {
+    return bmr * mnoznikiAktywnosci[aktywnosc]
+  }
+
   function obliczBMR(waga, wzrost, wiek, plec) {
     if (plec === 'm') return 88.362 + 13.397 * waga + 4.799 * wzrost - 5.677 * wiek
     return 447.593 + 9.247 * waga + 3.098 * wzrost - 4.330 * wiek
