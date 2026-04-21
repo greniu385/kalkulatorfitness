@@ -9,8 +9,30 @@ function App() {
   const [cel, setCel] = useState('utrzymanie')
   const [wagaDocelowa, setWagaDocelowa] = useState('')
   const [tygodnie, setTygodnie] = useState('')
+  const [wyniki, setWyniki] = useState(null)
 
   const mnoznikiAktywnosci = { '1': 1.2, '2': 1.375, '3': 1.55, '4': 1.725, '5': 1.9 }
+
+  function oblicz() {
+    const w = parseFloat(waga)
+    const h = parseFloat(wzrost)
+    const a = parseInt(wiek)
+    const bmr = obliczBMR(w, h, a, plec)
+    const tdee = obliczTDEE(bmr, aktywnosc)
+    const bmi = obliczBMI(w, h)
+
+    let kcalDziennie = tdee
+    if (cel !== 'utrzymanie') {
+      const wD = parseFloat(wagaDocelowa)
+      const t = parseInt(tygodnie)
+      const roznicaKg = wD - w
+      const deficytDziennie = (roznicaKg * 7700) / (t * 7)
+      kcalDziennie = Math.round(tdee + deficytDziennie)
+      kcalDziennie = Math.max(1200, kcalDziennie)
+    }
+
+    setWyniki({ bmi: bmi.toFixed(1), kategoria: kategoriaBMI(bmi), kcal: Math.round(kcalDziennie) })
+  }
 
   function obliczTDEE(bmr, aktywnosc) {
     return bmr * mnoznikiAktywnosci[aktywnosc]
@@ -110,7 +132,7 @@ function App() {
         </fieldset>
 
         <p>
-          <button type="button">Oblicz</button>
+          <button type="button" onClick={oblicz}>Oblicz</button>
         </p>
       </form>
     </>
