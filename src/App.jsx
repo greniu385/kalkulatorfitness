@@ -8,6 +8,18 @@ function App() {
   const [aktywnosc, setAktywnosc] = useState('2')
   const [cel, setCel] = useState('utrzymanie')
 
+  function obliczBMI(waga, wzrost) {
+    const h = wzrost / 100
+    return waga / (h * h)
+  }
+
+  function kategoriaBMI(bmi) {
+    if (bmi < 18.5) return 'niedowaga'
+    if (bmi < 25) return 'waga prawidłowa'
+    if (bmi < 30) return 'nadwaga'
+    return 'otyłość'
+  }
+
   return (
     <>
       <h1>Kalkulator fitness</h1>
