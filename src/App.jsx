@@ -141,6 +141,9 @@ function App() {
           <p>
             <strong>BMI:</strong> {wyniki.bmi} — <em>{wyniki.kategoria}</em>
           </p>
+          <p>
+            <strong>Dzienne zapotrzebowanie kaloryczne:</strong> {wyniki.kcal} kcal
+          </p>
         </section>
       )}
     </>
