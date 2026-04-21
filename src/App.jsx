@@ -1,4 +1,13 @@
+import { useState } from 'react'
+
 function App() {
+  const [wiek, setWiek] = useState('')
+  const [plec, setPlec] = useState('m')
+  const [wzrost, setWzrost] = useState('')
+  const [waga, setWaga] = useState('')
+  const [aktywnosc, setAktywnosc] = useState('2')
+  const [cel, setCel] = useState('utrzymanie')
+
   return (
     <>
       <h1>Kalkulator fitness</h1>
@@ -9,28 +18,28 @@ function App() {
           <p>
             <label>
               Wiek (lata){' '}
-              <input type="number" name="wiek" min="1" max="120" />
+              <input type="number" min="1" max="120" value={wiek} onChange={e => setWiek(e.target.value)} />
             </label>
           </p>
           <p>
             <label>
               Płeć{' '}
-              <select name="plec">
-                <option value="k">kobieta</option>
+              <select value={plec} onChange={e => setPlec(e.target.value)}>
                 <option value="m">mężczyzna</option>
+                <option value="k">kobieta</option>
               </select>
             </label>
           </p>
           <p>
             <label>
               Wzrost (cm){' '}
-              <input type="number" name="wzrost" min="50" max="250" />
+              <input type="number" min="50" max="250" value={wzrost} onChange={e => setWzrost(e.target.value)} />
             </label>
           </p>
           <p>
             <label>
               Waga (kg){' '}
-              <input type="number" name="waga" min="20" max="300" step="0.1" />
+              <input type="number" min="20" max="300" step="0.1" value={waga} onChange={e => setWaga(e.target.value)} />
             </label>
           </p>
         </fieldset>
@@ -40,7 +49,7 @@ function App() {
           <p>
             <label>
               Poziom{' '}
-              <select name="aktywnosc">
+              <select value={aktywnosc} onChange={e => setAktywnosc(e.target.value)}>
                 <option value="1">mało ruchu</option>
                 <option value="2">lekka aktywność</option>
                 <option value="3">umiarkowana aktywność</option>
@@ -53,37 +62,9 @@ function App() {
 
         <fieldset>
           <legend>Cel</legend>
-          <p>
-            <label>
-              <input type="radio" name="cel" value="redukcja" /> redukcja
-            </label>
-          </p>
-          <p>
-            <label>
-              <input type="radio" name="cel" value="utrzymanie" /> utrzymanie
-            </label>
-          </p>
-          <p>
-            <label>
-              <input type="radio" name="cel" value="masa" /> nabór masy
-            </label>
-          </p>
-        </fieldset>
-
-        <fieldset>
-          <legend>Makro (opcjonalnie)</legend>
-          <p>
-            <label>
-              Białko (g na kg masy ciała){' '}
-              <input type="number" name="bialko_na_kg" min="0.5" max="3" step="0.1" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Tłuszcz (% kalorii){' '}
-              <input type="number" name="tluszcz_procent" min="10" max="60" />
-            </label>
-          </p>
+          <p><label><input type="radio" value="schudnac" checked={cel === 'schudnac'} onChange={() => setCel('schudnac')} /> chcę schudnąć</label></p>
+          <p><label><input type="radio" value="utrzymanie" checked={cel === 'utrzymanie'} onChange={() => setCel('utrzymanie')} /> chcę utrzymać wagę</label></p>
+          <p><label><input type="radio" value="przytyc" checked={cel === 'przytyc'} onChange={() => setCel('przytyc')} /> chcę przytyć</label></p>
         </fieldset>
 
         <p>
