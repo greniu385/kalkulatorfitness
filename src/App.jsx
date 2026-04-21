@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
   const [wiek, setWiek] = useState('')
   const [plec, setPlec] = useState('m')
   const [wzrost, setWzrost] = useState('')
@@ -105,8 +106,13 @@ function App() {
   }
 
   return (
-    <>
-      <h1>Kalkulator fitness</h1>
+    <div className={darkMode ? 'dark' : ''}>
+      <header className="top-bar">
+        <h1>💪 Kalkulator Fitness</h1>
+        <button className="toggle-theme" onClick={() => setDarkMode(d => !d)}>
+          {darkMode ? '☀️ Jasny' : '🌙 Ciemny'}
+        </button>
+      </header>
 
       <form>
         <fieldset>
@@ -202,7 +208,7 @@ function App() {
           </ul>
         </section>
       )}
-    </>
+    </div>
   )
 }
 
