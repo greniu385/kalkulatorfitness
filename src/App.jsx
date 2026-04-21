@@ -192,16 +192,22 @@ function App() {
         </p>
       </form>
       {wyniki && (
-        <section>
+        <section className="wyniki">
           <h2>Twoje wyniki</h2>
-          <p>
-            <strong>BMI:</strong> {wyniki.bmi} — <em>{wyniki.kategoria}</em>
-          </p>
-          <p>
-            <strong>Dzienne zapotrzebowanie kaloryczne:</strong> {wyniki.kcal} kcal
-          </p>
+          <div className="karty">
+            <div className={`karta bmi-karta bmi-${wyniki.kategoria.replace(' ', '-')}`}>
+              <span className="karta-label">BMI</span>
+              <span className="karta-wartosc">{wyniki.bmi}</span>
+              <span className="karta-opis">{wyniki.kategoria}</span>
+            </div>
+            <div className="karta kcal-karta">
+              <span className="karta-label">Dziennie</span>
+              <span className="karta-wartosc">{wyniki.kcal}</span>
+              <span className="karta-opis">kcal / dzień</span>
+            </div>
+          </div>
           <h3>Co jeść?</h3>
-          <ul>
+          <ul className="jedzenie-lista">
             {jedzenie[wyniki.cel].map((produkt, i) => (
               <li key={i}>{produkt}</li>
             ))}
