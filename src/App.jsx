@@ -8,6 +8,11 @@ function App() {
   const [aktywnosc, setAktywnosc] = useState('2')
   const [cel, setCel] = useState('utrzymanie')
 
+  function obliczBMR(waga, wzrost, wiek, plec) {
+    if (plec === 'm') return 88.362 + 13.397 * waga + 4.799 * wzrost - 5.677 * wiek
+    return 447.593 + 9.247 * waga + 3.098 * wzrost - 4.330 * wiek
+  }
+
   function obliczBMI(waga, wzrost) {
     const h = wzrost / 100
     return waga / (h * h)
