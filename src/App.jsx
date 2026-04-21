@@ -164,9 +164,11 @@ function App() {
 
         <fieldset>
           <legend>Cel</legend>
-          <p><label><input type="radio" value="schudnac" checked={cel === 'schudnac'} onChange={() => setCel('schudnac')} /> chcę schudnąć</label></p>
-          <p><label><input type="radio" value="utrzymanie" checked={cel === 'utrzymanie'} onChange={() => setCel('utrzymanie')} /> chcę utrzymać wagę</label></p>
-          <p><label><input type="radio" value="przytyc" checked={cel === 'przytyc'} onChange={() => setCel('przytyc')} /> chcę przytyć</label></p>
+          <div className="cel-przyciski">
+            <button type="button" className={`cel-btn ${cel === 'schudnac' ? 'aktywny' : ''}`} onClick={() => setCel('schudnac')}>🔥 Schudnąć</button>
+            <button type="button" className={`cel-btn ${cel === 'utrzymanie' ? 'aktywny' : ''}`} onClick={() => setCel('utrzymanie')}>⚖️ Utrzymać</button>
+            <button type="button" className={`cel-btn ${cel === 'przytyc' ? 'aktywny' : ''}`} onClick={() => setCel('przytyc')}>💪 Przytyć</button>
+          </div>
 
           {cel !== 'utrzymanie' && (
             <>
