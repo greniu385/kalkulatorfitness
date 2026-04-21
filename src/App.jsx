@@ -70,7 +70,7 @@ function App() {
       kcalDziennie = Math.max(1200, kcalDziennie)
     }
 
-    setWyniki({ bmi: bmi.toFixed(1), kategoria: kategoriaBMI(bmi), kcal: Math.round(kcalDziennie) })
+    setWyniki({ bmi: bmi.toFixed(1), kategoria: kategoriaBMI(bmi), kcal: Math.round(kcalDziennie), cel })
   }
 
   function obliczTDEE(bmr, aktywnosc) {
@@ -183,6 +183,12 @@ function App() {
           <p>
             <strong>Dzienne zapotrzebowanie kaloryczne:</strong> {wyniki.kcal} kcal
           </p>
+          <h3>Co jeść?</h3>
+          <ul>
+            {jedzenie[wyniki.cel].map((produkt, i) => (
+              <li key={i}>{produkt}</li>
+            ))}
+          </ul>
         </section>
       )}
     </>
