@@ -135,6 +135,14 @@ function App() {
           <button type="button" onClick={oblicz}>Oblicz</button>
         </p>
       </form>
+      {wyniki && (
+        <section>
+          <h2>Twoje wyniki</h2>
+          <p>
+            <strong>BMI:</strong> {wyniki.bmi} — <em>{wyniki.kategoria}</em>
+          </p>
+        </section>
+      )}
     </>
   )
 }
