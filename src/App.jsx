@@ -13,6 +13,45 @@ function App() {
 
   const mnoznikiAktywnosci = { '1': 1.2, '2': 1.375, '3': 1.55, '4': 1.725, '5': 1.9 }
 
+  const jedzenie = {
+    schudnac: [
+      'Kurczak gotowany / pieczony',
+      'Ryby (łosoś, dorsz, tuńczyk)',
+      'Jajka na twardo',
+      'Warzywa (brokuły, szpinak, ogórek, pomidor)',
+      'Sałatka bez sosu',
+      'Płatki owsiane',
+      'Jogurt naturalny 0%',
+      'Owoce (jabłko, grejpfrut, jagody)',
+      'Kasza gryczana',
+      'Soczewica / ciecierzyca',
+    ],
+    utrzymanie: [
+      'Kurczak, indyk, ryby',
+      'Ryż brązowy, kasza',
+      'Jajka',
+      'Owoce i warzywa sezonowe',
+      'Nabiał (jogurt, twaróg)',
+      'Orzechy (garść dziennie)',
+      'Pełnoziarniste pieczywo',
+      'Strączki (fasola, soczewica)',
+      'Awokado',
+      'Oliwa z oliwek',
+    ],
+    przytyc: [
+      'Mięso czerwone (wołowina, wieprzowina)',
+      'Masło orzechowe',
+      'Orzechy (migdały, orzechy włoskie)',
+      'Banany, winogrona, mango',
+      'Makaron pełnoziarnisty',
+      'Ryż biały',
+      'Awokado',
+      'Jajka (całe)',
+      'Ser żółty, twaróg tłusty',
+      'Owsianka z mlekiem i owocami',
+    ],
+  }
+
   function oblicz() {
     const w = parseFloat(waga)
     const h = parseFloat(wzrost)
