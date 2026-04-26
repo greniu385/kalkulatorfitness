@@ -5,7 +5,11 @@ import DashboardPage from './pages/DashboardPage'
 import './App.css'
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('fit_dark') === 'true')
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('fit_dark') === 'true'
+    if (saved) document.body.classList.add('dark')
+    return saved
+  })
   const [screen, setScreen] = useState('auth')
   const [currentUser, setCurrentUser] = useState(null)
 
@@ -19,6 +23,11 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.remove('dark')
+    }
     localStorage.setItem('fit_dark', darkMode)
   }, [darkMode])
 
@@ -36,7 +45,7 @@ function App() {
   }
 
   return (
-    <div className={darkMode ? 'app dark' : 'app'}>
+    <div className="app">
       <header className="top-bar">
         <div className="top-bar-brand">
           <span className="brand-icon">💪</span>
