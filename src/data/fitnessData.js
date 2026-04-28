@@ -48,26 +48,6 @@ export const workouts = {
       { name: 'Deska (plank)', sets: '3 × 45–60 sek', rest: '30 sek przerwy' },
       { name: 'Przysiady ze skokiem', sets: '3 × 15 powtórzeń', rest: '1 min przerwy' },
     ],
-    videos: [
-      {
-        title: '20-minutowy HIIT w domu – spalanie tłuszczu',
-        channel: 'Trening w domu',
-        url: 'https://www.youtube.com/results?search_query=HIIT+20+minut+dom+spalanie+tluszczu',
-        emoji: '🔥',
-      },
-      {
-        title: 'Cardio dla początkujących – odchudzanie',
-        channel: 'Fitness Polska',
-        url: 'https://www.youtube.com/results?search_query=cardio+trening+poczatkujacy+odchudzanie',
-        emoji: '🏃',
-      },
-      {
-        title: 'Trening bez sprzętu – pełne ciało',
-        channel: 'Trening w domu',
-        url: 'https://www.youtube.com/results?search_query=trening+bez+sprzetu+pelne+cialo+spalanie',
-        emoji: '💪',
-      },
-    ],
   },
   utrzymanie: {
     description: 'Łącz cardio z siłą – utrzymasz wagę i poprawisz kondycję. Trenuj 3–4 razy w tygodniu.',
@@ -79,26 +59,6 @@ export const workouts = {
       { name: 'Wiosłowanie hantlem', sets: '3 × 12 pow./ręka', rest: '90 sek przerwy' },
       { name: 'Yoga / rozciąganie', sets: '15–20 min', rest: 'Na koniec sesji' },
     ],
-    videos: [
-      {
-        title: 'Full body – utrzymanie formy i kondycji',
-        channel: 'Trening Siłowy',
-        url: 'https://www.youtube.com/results?search_query=full+body+trening+utrzymanie+formy',
-        emoji: '⚖️',
-      },
-      {
-        title: 'Trening siłowo-kondycyjny dla każdego',
-        channel: 'Fitness Polska',
-        url: 'https://www.youtube.com/results?search_query=trening+silowy+kondycyjny+kazdy',
-        emoji: '🏋️',
-      },
-      {
-        title: 'Yoga dla aktywnych – regeneracja i elastyczność',
-        channel: 'Yoga Polska',
-        url: 'https://www.youtube.com/results?search_query=yoga+aktywni+regeneracja+elastycznosc',
-        emoji: '🧘',
-      },
-    ],
   },
   przytyc: {
     description: 'Trening siłowy z progresywnym przeciążeniem to klucz do budowania masy. Trenuj 3–4 razy w tygodniu.',
@@ -109,26 +69,6 @@ export const workouts = {
       { name: 'Wiosłowanie sztangą', sets: '4 × 10 powtórzeń', rest: '2 min przerwy' },
       { name: 'Wyciskanie nad głową (OHP)', sets: '3 × 10 powtórzeń', rest: '2 min przerwy' },
       { name: 'Podciąganie na drążku', sets: '4 × max powtórzeń', rest: '2 min przerwy' },
-    ],
-    videos: [
-      {
-        title: 'Trening na masę dla początkujących',
-        channel: 'Kulturystyka Polska',
-        url: 'https://www.youtube.com/results?search_query=trening+na+mase+poczatkujacy+program',
-        emoji: '💪',
-      },
-      {
-        title: 'Big 3 – przysiady, martwy ciąg, wyciskanie',
-        channel: 'Siłownia',
-        url: 'https://www.youtube.com/results?search_query=big+3+przysiady+martwy+ciag+wyciskanie+technika',
-        emoji: '🏋️',
-      },
-      {
-        title: 'Jak skutecznie budować mięśnie',
-        channel: 'FitLife Polska',
-        url: 'https://www.youtube.com/results?search_query=jak+budowac+miesnie+skutecznie+trening',
-        emoji: '🎯',
-      },
     ],
   },
 }

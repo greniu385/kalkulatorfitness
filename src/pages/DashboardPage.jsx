@@ -97,28 +97,6 @@ export default function DashboardPage({ currentUser, onEditProfile }) {
         </div>
       </section>
 
-      <section className="dash-section">
-        <h3>🎬 Najlepsze treningi dla Ciebie</h3>
-        <p className="section-desc">Sprawdź polecane treningi na YouTube:</p>
-        <div className="video-grid">
-          {workout.videos.map((v, i) => (
-            <a
-              key={i}
-              href={v.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="video-card"
-            >
-              <span className="video-emoji">{v.emoji}</span>
-              <div className="video-info">
-                <span className="video-title">{v.title}</span>
-                <span className="video-channel">{v.channel} · YouTube</span>
-              </div>
-              <span className="video-arrow">→</span>
-            </a>
-          ))}
-        </div>
-      </section>
     </div>
   )
 }
