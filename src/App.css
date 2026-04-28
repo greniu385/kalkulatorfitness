@@ -745,3 +745,445 @@ select:focus {
   input[type="number"], select { width: 130px; }
   .dashboard-greeting { flex-wrap: wrap; }
 }
+
+/* ══════════════════════════════════════
+   DASHBOARD NAV TABS
+══════════════════════════════════════ */
+.dash-nav {
+  display: flex;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  gap: 4px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.dash-nav-btn {
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all var(--transition);
+}
+
+.dash-nav-btn:hover { color: var(--text); }
+
+.dash-nav-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* ══════════════════════════════════════
+   CALENDAR PAGE
+══════════════════════════════════════ */
+.calendar-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px 16px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Date navigation ── */
+.cal-date-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cal-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.cal-nav-btn:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.cal-date-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.cal-date-input {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: auto !important;
+}
+
+.cal-date-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.cal-date-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+/* ── Kcal progress ── */
+.kcal-progress-wrap { margin-bottom: 20px; }
+
+.kcal-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.kcal-consumed {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.kcal-target {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.kcal-bar-bg {
+  width: 100%;
+  height: 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.kcal-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 20px;
+  transition: width 0.3s ease;
+  min-width: 0;
+}
+
+.kcal-bar-fill.kcal-over { background: var(--danger); }
+
+.kcal-remaining {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.kcal-over-text {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* ── Meal log list ── */
+.meal-log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.meal-log-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  gap: 10px;
+}
+
+.meal-log-name {
+  font-size: 14px;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+}
+
+.meal-log-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.meal-log-kcal {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.meal-log-remove {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), color var(--transition);
+}
+
+.meal-log-remove:hover {
+  background: var(--danger);
+  color: white;
+}
+
+/* ── Add meal form ── */
+.add-meal-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.add-meal-input {
+  flex: 1;
+  padding: 10px 13px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  min-width: 0;
+}
+
+.add-meal-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.add-meal-input::placeholder { color: var(--text-light); }
+
+.add-meal-kcal {
+  width: 80px !important;
+  padding: 10px 10px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  flex-shrink: 0;
+}
+
+.add-meal-kcal:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.add-meal-kcal::placeholder { color: var(--text-light); }
+
+.btn-add-meal {
+  padding: 10px 18px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.btn-add-meal:hover { background: var(--primary-hover); }
+
+/* ── Workout toggle ── */
+.workout-toggle-btn {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface2);
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.workout-toggle-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.workout-toggle-btn.active {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* ── Muscle groups ── */
+.muscle-groups { margin-top: 18px; }
+
+.muscle-groups-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.muscle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.muscle-btn {
+  padding: 10px 6px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface2);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.muscle-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.muscle-btn.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+/* ── Weekly tracker ── */
+.weekly-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.weekly-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: transform var(--transition);
+}
+
+.weekly-card:hover { transform: translateY(-2px); }
+
+.weekly-done {
+  background: var(--primary-light);
+  border-color: var(--primary);
+}
+
+.weekly-half {
+  background: #fffbeb;
+  border-color: #fcd34d;
+}
+
+.dark .weekly-half {
+  background: #1c1100;
+  border-color: #3d2800;
+}
+
+.weekly-none { background: var(--surface2); }
+
+.weekly-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.weekly-done .weekly-name { color: var(--primary); }
+.weekly-half .weekly-name { color: #b45309; }
+.dark .weekly-half .weekly-name { color: #fcd34d; }
+
+.weekly-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  display: inline-block;
+  transition: background var(--transition);
+}
+
+.dot.filled { background: var(--primary); }
+.weekly-half .dot.filled { background: #f59e0b; }
+
+.weekly-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.weekly-done .weekly-count { color: var(--primary); }
+.weekly-half .weekly-count { color: #b45309; }
+.dark .weekly-half .weekly-count { color: #fcd34d; }
+
+/* ── Responsive calendar ── */
+@media (max-width: 520px) {
+  .calendar-container { padding: 20px 12px 40px; }
+  .cal-date-nav { padding: 12px 14px; }
+  .muscle-grid { grid-template-columns: repeat(2, 1fr); }
+  .weekly-grid { grid-template-columns: repeat(2, 1fr); }
+  .add-meal-kcal { width: 70px !important; }
+  .dash-nav { padding: 0 12px; }
+  .dash-nav-btn { padding: 10px 12px; font-size: 13px; }
+}
