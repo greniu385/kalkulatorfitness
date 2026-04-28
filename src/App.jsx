@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import AuthPage from './pages/AuthPage'
 import SetupPage from './pages/SetupPage'
 import DashboardPage from './pages/DashboardPage'
+import CalendarPage from './pages/CalendarPage'
 import './App.css'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     return saved
   })
   const [screen, setScreen] = useState('auth')
+  const [view, setView] = useState('stats')
   const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
@@ -36,12 +38,14 @@ function App() {
     setCurrentUser(login)
     const profiles = JSON.parse(localStorage.getItem('fit_profiles') || '{}')
     setScreen(profiles[login] ? 'dashboard' : 'setup')
+    setView('stats')
   }
 
   function handleLogout() {
     localStorage.removeItem('fit_current_user')
     setCurrentUser(null)
     setScreen('auth')
+    setView('stats')
   }
 
   return (
@@ -63,6 +67,23 @@ function App() {
         </div>
       </header>
 
+      {screen === 'dashboard' && (
+        <nav className="dash-nav">
+          <button
+            className={`dash-nav-btn${view === 'stats' ? ' active' : ''}`}
+            onClick={() => setView('stats')}
+          >
+            📊 Statystyki
+          </button>
+          <button
+            className={`dash-nav-btn${view === 'calendar' ? ' active' : ''}`}
+            onClick={() => setView('calendar')}
+          >
+            📅 Kalendarz
+          </button>
+        </nav>
+      )}
+
       <main className="main-content">
         {screen === 'auth' && <AuthPage onLogin={handleLogin} />}
         {screen === 'setup' && (
@@ -71,11 +92,14 @@ function App() {
             onComplete={() => setScreen('dashboard')}
           />
         )}
-        {screen === 'dashboard' && (
+        {screen === 'dashboard' && view === 'stats' && (
           <DashboardPage
             currentUser={currentUser}
             onEditProfile={() => setScreen('setup')}
           />
+        )}
+        {screen === 'dashboard' && view === 'calendar' && (
+          <CalendarPage currentUser={currentUser} />
         )}
       </main>
     </div>
